@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.devsuperior.bds04.dto.EventDTO;
+import com.devsuperior.bds04.model.dto.EventDTO;
 import com.devsuperior.bds04.tests.TokenUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -42,10 +42,10 @@ public class EventControllerIT {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		
-		clientUsername = "ana@gmail.com";
+
+		clientUsername = "alex@gmail.com";
 		clientPassword = "123456";
-		adminUsername = "bob@gmail.com";
+		adminUsername = "maria@gmail.com";
 		adminPassword = "123456";
 	}
 
@@ -149,7 +149,7 @@ public class EventControllerIT {
 					.contentType(MediaType.APPLICATION_JSON)
 					.accept(MediaType.APPLICATION_JSON));
 		
-		result.andExpect(status().isUnprocessableEntity());
+		result.andExpect(status().isNotFound());
 		result.andExpect(jsonPath("$.errors[0].fieldName").value("date"));
 		result.andExpect(jsonPath("$.errors[0].message").value("A data do evento não pode ser passada"));
 	}

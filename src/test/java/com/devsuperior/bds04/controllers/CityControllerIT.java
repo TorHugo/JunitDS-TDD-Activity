@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.devsuperior.bds04.dto.CityDTO;
+import com.devsuperior.bds04.model.dto.CityDTO;
 import com.devsuperior.bds04.tests.TokenUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -41,9 +41,9 @@ public class CityControllerIT {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		clientUsername = "ana@gmail.com";
+		clientUsername = "alex@gmail.com";
 		clientPassword = "123456";
-		adminUsername = "bob@gmail.com";
+		adminUsername = "maria@gmail.com";
 		adminPassword = "123456";
 	}
 
