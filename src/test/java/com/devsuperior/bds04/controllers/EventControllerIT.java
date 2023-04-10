@@ -149,7 +149,7 @@ public class EventControllerIT {
 					.contentType(MediaType.APPLICATION_JSON)
 					.accept(MediaType.APPLICATION_JSON));
 		
-		result.andExpect(status().isNotFound());
+		result.andExpect(status().isUnprocessableEntity());
 		result.andExpect(jsonPath("$.errors[0].fieldName").value("date"));
 		result.andExpect(jsonPath("$.errors[0].message").value("A data do evento não pode ser passada"));
 	}
